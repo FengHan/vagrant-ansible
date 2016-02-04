@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 Vagrant.configure(2) do |config|
   config.ssh.insert_key = false
+  config.vm.box_url = "http://192.168.3.127/ubuntu.trusty64.box"
   config.vm.define "vagrant1" do |vagrant1|
     vagrant1.vm.box = "ubuntu/trusty64"
     vagrant1.vm.hostname="vagrant1"
