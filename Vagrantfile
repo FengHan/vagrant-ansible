@@ -17,11 +17,15 @@ Vagrant.configure(2) do |config|
     vagrant2.vm.hostname="vagrant2"
     vagrant2.vm.synced_folder ".", "/vagrant"
     vagrant2.vm.network "private_network", ip: "192.168.33.2"
+    vagrant2.vm.network "forwarded_port", guest: 80, host: 8081
+    vagrant2.vm.network "forwarded_port", guest: 443, host: 8444
   end
   config.vm.define "vagrant3" do |vagrant3|
       vagrant3.vm.box = "ubuntu/trusty64"
       vagrant3.vm.hostname="vagrant3"
       vagrant3.vm.synced_folder ".", "/vagrant"
       vagrant3.vm.network "private_network", ip: "192.168.33.3"
+      vagrant3.vm.network "forwarded_port", guest: 80, host: 8082
+      vagrant3.vm.network "forwarded_port", guest: 443, host: 8445
     end
 end
